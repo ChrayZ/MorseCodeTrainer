@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading;
+using System.Diagnostics.Eventing.Reader;
 
 namespace MorseCodeTrainer
 {
@@ -34,6 +35,7 @@ namespace MorseCodeTrainer
 			set 
 			{
 				__streak = value;
+				if (value != 0) _streakSave = value;
 				lblStreak.Text = "Streak:" + Environment.NewLine + __streak;
 			}
 		}
@@ -68,18 +70,23 @@ namespace MorseCodeTrainer
 		{
 			txtInput.Left = (ClientSize.Width - txtInput.Size.Width) / 2;
 			lblStreak.Left = ClientSize.Width / 4 - txtInput.Size.Width;
-			_words = File.ReadAllText("words.txt").Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 
             Click += MainForm_Click;
             txtInput.KeyDown += txtInput_KeyDown;
-			txtInput.KeyUp += txtInput_KeyUp;
+            txtInput.KeyUp += txtInput_KeyUp;
             lblStreak.Click += lblStreak_Click;
-			rbnLetterToMorse.CheckedChanged += rbnSelectionChanged;
+            rbnLetterToMorse.CheckedChanged += rbnSelectionChanged;
             rbnMorseToLetter.CheckedChanged += rbnSelectionChanged;
+			rbnWordToMorse.CheckedChanged += rbnSelectionChanged;
+            rbnMorseToWord.CheckedChanged += rbnSelectionChanged;
             rbnMorseToLetterHearing.CheckedChanged += rbnSelectionChanged;
             rbnMorseToWordHearing.CheckedChanged += rbnSelectionChanged;
-			_timer.Tick += timer_Tick;
-			rbnLetterToMorse.Checked = true;
+			cboLanguage.SelectedIndexChanged += cboLanguage_SelectedIndexChanged;
+            _timer.Tick += timer_Tick;
+
+            rbnLetterToMorse.Checked = true;
+			cboLanguage.SelectedIndex = 0;
+            _timer.Start();
         }
 
 		public MainForm()
@@ -88,8 +95,6 @@ namespace MorseCodeTrainer
             _listOfValidKeys = new List<Keys>();
             _random = new Random((int)(DateTime.Now.Ticks % int.MaxValue));
 			_timer = new System.Windows.Forms.Timer { Interval = 1 };
-			_timer.Start();
-
 
             InitializeComponent();
 			FillLetters();
@@ -101,15 +106,47 @@ namespace MorseCodeTrainer
 			_cursorShown = true;
         }
 
-        private void rbnSelectionChanged(object sender, EventArgs e)
+		private string WordToMorse(string word)
+		{
+			string morseString = "";
+			foreach (char c in word)
+			{
+				LetterData letter = _listOfLetters.Where(x => x.Character.ToLower() == c.ToString().ToLower()).First();
+				morseString += letter.MorseCode + " ";
+			}
+			return morseString.Trim();
+		}
+
+        private void SoundMorse()
         {
-            RadioButton rbnSender = (RadioButton)sender;
-            if (!rbnSender.Checked) return;
-            if (rbnLetterToMorse.Checked) _learningMode = LearningMode.TextFirstLetter;
-            if (rbnMorseToLetter.Checked || rbnMorseToLetterHearing.Checked) _learningMode = LearningMode.MorseFirstLetter;
-            if (rbnMorseToWordHearing.Checked) _learningMode = LearningMode.MorseFirstWord;
-            _hearing = rbnMorseToLetterHearing.Checked || rbnMorseToWordHearing.Checked;
-            SetNextSymbol();
+            string morse = "";
+            switch (_learningMode)
+            {
+                case LearningMode.MorseFirstLetter:
+                    morse = _currentLetter.MorseCode;
+                    break;
+                case LearningMode.MorseFirstWord:
+                    morse = _currentWord.MorseCode;
+                    break;
+            }
+
+            beepThread?.Abort();
+
+            Func<string, int, int, int> soundMorseLambda = (string pMorse, int pMorseInterval, int pMorsePitch) =>
+            {
+                foreach (char morseSign in pMorse)
+                {
+                    if (morseSign == '-') Console.Beep(pMorsePitch, pMorseInterval * 3);
+                    if (morseSign == '.') Console.Beep(pMorsePitch, pMorseInterval);
+                    if (morseSign == ' ') System.Threading.Thread.Sleep(pMorseInterval);
+                    System.Threading.Thread.Sleep(pMorseInterval);
+                }
+                return 1;
+            };
+            beepThread = new Thread(() => soundMorseLambda(morse, (int)nudMorseInterval.Value, (int)nudMorsePitch.Value));
+
+            FormClosing += (object sender, FormClosingEventArgs e) => beepThread.Abort();
+            beepThread.Start();
         }
 
         private void txtInput_KeyDown(object sender, KeyEventArgs e)
@@ -148,6 +185,7 @@ namespace MorseCodeTrainer
 
 			if (e.KeyCode == Keys.Space)
 			{
+				if (_learningMode == LearningMode.TextFirstWord) return;
 				txtInput.Clear();
 				if (lblHint.Text == "") {
 					lblHint.Text = hint;
@@ -203,8 +241,10 @@ namespace MorseCodeTrainer
             switch (_learningMode)
             {
                 case LearningMode.TextFirstLetter:
-                case LearningMode.TextFirstWord:
 					lblNextLetter.Text = _currentLetter.Character;
+					break;
+                case LearningMode.TextFirstWord:
+					lblNextLetter.Text = _currentWord.Word;
 					break;
                 case LearningMode.MorseFirstLetter:
                     if (!_hearing) { lblNextLetter.Text = _currentLetter.MorseCode; } else { lblNextLetter.Text = ""; SoundMorse(); }
@@ -227,7 +267,26 @@ namespace MorseCodeTrainer
 			lblStreak.Text = "Streak:" + Environment.NewLine + _streak.ToString();
 		}
 
-		private void FillLetters()
+        private void cboLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _words = File.ReadAllText("Words" + cboLanguage.Text + ".txt").Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+			if (_learningMode == LearningMode.TextFirstWord || _learningMode == LearningMode.MorseFirstWord) SetNextSymbol();
+        }
+
+        private void rbnSelectionChanged(object sender, EventArgs e)
+        {
+            RadioButton rbnSender = (RadioButton)sender;
+            if (!rbnSender.Checked) return;
+            if (rbnLetterToMorse.Checked) _learningMode = LearningMode.TextFirstLetter;
+            if (rbnWordToMorse.Checked) _learningMode = LearningMode.TextFirstWord;
+            if (rbnMorseToLetter.Checked || rbnMorseToLetterHearing.Checked) _learningMode = LearningMode.MorseFirstLetter;
+            if (rbnMorseToWord.Checked || rbnMorseToWordHearing.Checked) _learningMode = LearningMode.MorseFirstWord;
+            _hearing = rbnMorseToLetterHearing.Checked || rbnMorseToWordHearing.Checked;
+            lblHint.Text = "";
+            SetNextSymbol();
+        }
+
+        private void FillLetters()
 		{
 			_listOfLetters.Add(new LetterData("A", ".-", "Archery"));
 			_listOfLetters.Add(new LetterData("B", "-...", "Banjo"));
@@ -268,63 +327,20 @@ namespace MorseCodeTrainer
 				}
 			}
         }
+    }
 
-		private string WordToMorse(string word)
-		{
-			string morseString = "";
-			foreach (char c in word)
-			{
-				LetterData letter = _listOfLetters.Where(x => x.Character.ToLower() == c.ToString().ToLower()).First();
-				morseString += letter.MorseCode + " ";
-			}
-			return morseString.Trim();
-		}
-
-		private void SoundMorse()
-		{
-			string morse = "";
-            switch (_learningMode)
-            {
-                case LearningMode.MorseFirstLetter:
-                    morse = _currentLetter.MorseCode;
-                    break;
-                case LearningMode.MorseFirstWord:
-                    morse = _currentWord.MorseCode;
-                    break;
-            }
-
-            beepThread?.Abort();
-
-			Func<string, int, int, int> soundMorseLambda = (string pMorse, int pMorseInterval, int pMorsePitch) =>
-			{
-                foreach (char morseSign in pMorse)
-                {
-                    if (morseSign == '-') Console.Beep(pMorsePitch, pMorseInterval * 3);
-                    if (morseSign == '.') Console.Beep(pMorsePitch, pMorseInterval);
-                    if (morseSign == ' ') System.Threading.Thread.Sleep(pMorseInterval);
-                    System.Threading.Thread.Sleep(pMorseInterval);
-                }
-                return 1;
-            };
-            beepThread = new Thread(() => soundMorseLambda(morse, (int)nudMorseInterval.Value, (int)nudMorsePitch.Value));
-			
-            FormClosing += (object sender, FormClosingEventArgs e) => beepThread.Abort();
-            beepThread.Start();
-        }
-	}
-
-	public static class StringExtensions
+    public static class StringExtensions
 	{
         public static string RemoveSpecialCharacters(this string str)
         {
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-                {
-                    sb.Append(c);
-                }
-            }
+				if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+				{
+					sb.Append(c);
+				}
+			}
             return sb.ToString();
         }
     }
