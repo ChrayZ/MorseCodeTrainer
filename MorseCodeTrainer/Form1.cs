@@ -74,6 +74,7 @@ namespace MorseCodeTrainer
             Click += MainForm_Click;
             txtInput.KeyDown += txtInput_KeyDown;
             txtInput.KeyUp += txtInput_KeyUp;
+			txtInput.TextChanged += txtInput_TextChanged;
             lblStreak.Click += lblStreak_Click;
             rbnLetterToMorse.CheckedChanged += rbnSelectionChanged;
             rbnMorseToLetter.CheckedChanged += rbnSelectionChanged;
@@ -82,6 +83,7 @@ namespace MorseCodeTrainer
             rbnMorseToLetterHearing.CheckedChanged += rbnSelectionChanged;
             rbnMorseToWordHearing.CheckedChanged += rbnSelectionChanged;
 			cboLanguage.SelectedIndexChanged += cboLanguage_SelectedIndexChanged;
+			chkShowMorseTranslation.CheckedChanged += chkShowMorseTranslation_CheckedChanged;
             _timer.Tick += timer_Tick;
 
             rbnLetterToMorse.Checked = true;
@@ -149,10 +151,31 @@ namespace MorseCodeTrainer
             beepThread.Start();
         }
 
+		private void ShowInputMorseTranslation()
+		{
+			if (_learningMode != LearningMode.TextFirstWord || !chkShowMorseTranslation.Checked) return;
+			if (txtInput.Text == "") { lblTranslation.Text = ""; return; }
+			string morseText = txtInput.Text.Trim();
+            string[] morseCharacters = morseText.Split(' ');
+			string resultWord = "";
+			foreach (string morseCharacter in morseCharacters)
+			{
+				LetterData letter  = _listOfLetters.Find(x => x.MorseCode == morseCharacter);
+				resultWord += letter is null ? "?" : letter.Character.ToLower();
+			}
+			lblTranslation.Text = resultWord;
+			lblTranslation.Left = (ClientSize.Width - lblTranslation.Size.Width) / 2;
+        }
+
         private void txtInput_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Return) e.SuppressKeyPress = true;
-		}
+        }
+
+		private void txtInput_TextChanged(object sender, EventArgs e)
+		{
+            ShowInputMorseTranslation();
+        }
 
 		private void txtInput_KeyUp(object sender, KeyEventArgs e)
 		{
@@ -254,6 +277,7 @@ namespace MorseCodeTrainer
                     break;
             }
             lblNextLetter.Left = (ClientSize.Width - lblNextLetter.Size.Width) / 2;
+			lblTranslation.Text = "";
         }
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -272,6 +296,19 @@ namespace MorseCodeTrainer
             _words = File.ReadAllText("Words" + cboLanguage.Text + ".txt").Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 			if (_learningMode == LearningMode.TextFirstWord || _learningMode == LearningMode.MorseFirstWord) SetNextSymbol();
         }
+
+		private void chkShowMorseTranslation_CheckedChanged(object sender, EventArgs e)
+		{
+			CheckBox chkShowMorseTranslation = (CheckBox)sender;
+			if (chkShowMorseTranslation.Checked)
+			{
+				ShowInputMorseTranslation();
+			}
+			else
+			{
+				lblTranslation.Text = "";
+			}
+		}
 
         private void rbnSelectionChanged(object sender, EventArgs e)
         {

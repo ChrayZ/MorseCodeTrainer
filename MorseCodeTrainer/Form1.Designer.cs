@@ -44,6 +44,8 @@
             this.rbnMorseToWord = new System.Windows.Forms.RadioButton();
             this.cboLanguage = new System.Windows.Forms.ComboBox();
             this.lblLanguage = new System.Windows.Forms.Label();
+            this.lblTranslation = new System.Windows.Forms.Label();
+            this.chkShowMorseTranslation = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudMorsePitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMorseInterval)).BeginInit();
             this.SuspendLayout();
@@ -231,7 +233,7 @@
             this.cboLanguage.Items.AddRange(new object[] {
             "DE",
             "EN"});
-            this.cboLanguage.Location = new System.Drawing.Point(73, 12);
+            this.cboLanguage.Location = new System.Drawing.Point(73, 5);
             this.cboLanguage.Name = "cboLanguage";
             this.cboLanguage.Size = new System.Drawing.Size(49, 21);
             this.cboLanguage.TabIndex = 14;
@@ -239,17 +241,44 @@
             // lblLanguage
             // 
             this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Location = new System.Drawing.Point(12, 15);
+            this.lblLanguage.Location = new System.Drawing.Point(12, 8);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(55, 13);
             this.lblLanguage.TabIndex = 15;
             this.lblLanguage.Text = "Language";
+            // 
+            // lblTranslation
+            // 
+            this.lblTranslation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTranslation.AutoSize = true;
+            this.lblTranslation.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTranslation.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTranslation.Location = new System.Drawing.Point(400, 161);
+            this.lblTranslation.Name = "lblTranslation";
+            this.lblTranslation.Size = new System.Drawing.Size(0, 31);
+            this.lblTranslation.TabIndex = 16;
+            this.lblTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkShowMorseTranslation
+            // 
+            this.chkShowMorseTranslation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkShowMorseTranslation.AutoSize = true;
+            this.chkShowMorseTranslation.Checked = true;
+            this.chkShowMorseTranslation.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowMorseTranslation.Location = new System.Drawing.Point(680, 372);
+            this.chkShowMorseTranslation.Name = "chkShowMorseTranslation";
+            this.chkShowMorseTranslation.Size = new System.Drawing.Size(108, 17);
+            this.chkShowMorseTranslation.TabIndex = 17;
+            this.chkShowMorseTranslation.Text = "Show Translation";
+            this.chkShowMorseTranslation.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chkShowMorseTranslation);
+            this.Controls.Add(this.lblTranslation);
             this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.cboLanguage);
             this.Controls.Add(this.rbnMorseToWord);
@@ -295,6 +324,8 @@
         private System.Windows.Forms.RadioButton rbnMorseToWord;
         private System.Windows.Forms.ComboBox cboLanguage;
         private System.Windows.Forms.Label lblLanguage;
+        private System.Windows.Forms.Label lblTranslation;
+        private System.Windows.Forms.CheckBox chkShowMorseTranslation;
     }
 }
 
