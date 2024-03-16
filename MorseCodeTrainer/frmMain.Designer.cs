@@ -28,312 +28,289 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblSymbolToTranslate = new System.Windows.Forms.Label();
-            this.txtInput = new System.Windows.Forms.TextBox();
-            this.lblHint = new System.Windows.Forms.Label();
-            this.lblStreak = new System.Windows.Forms.Label();
-            this.rbnLetterToMorse = new System.Windows.Forms.RadioButton();
-            this.rbnMorseToLetter = new System.Windows.Forms.RadioButton();
-            this.rbnMorseToLetterHearing = new System.Windows.Forms.RadioButton();
-            this.rbnMorseToWordHearing = new System.Windows.Forms.RadioButton();
-            this.nudMorsePitch = new System.Windows.Forms.NumericUpDown();
-            this.nudMorseInterval = new System.Windows.Forms.NumericUpDown();
-            this.lblMorseInterval = new System.Windows.Forms.Label();
-            this.lblMorsePitch = new System.Windows.Forms.Label();
-            this.rbnWordToMorse = new System.Windows.Forms.RadioButton();
-            this.rbnMorseToWord = new System.Windows.Forms.RadioButton();
-            this.cboLanguage = new System.Windows.Forms.ComboBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
-            this.lblTranslation = new System.Windows.Forms.Label();
-            this.chkShowMorseTranslation = new System.Windows.Forms.CheckBox();
-            this.chkStrictMode = new System.Windows.Forms.CheckBox();
-            this.lblMistakeReminder = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMorsePitch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMorseInterval)).BeginInit();
-            this.SuspendLayout();
+            lblSymbolToTranslate = new System.Windows.Forms.Label();
+            txtInput = new System.Windows.Forms.TextBox();
+            lblHint = new System.Windows.Forms.Label();
+            lblStreak = new System.Windows.Forms.Label();
+            rbnLetterToMorse = new System.Windows.Forms.RadioButton();
+            rbnMorseToLetter = new System.Windows.Forms.RadioButton();
+            rbnMorseToLetterHearing = new System.Windows.Forms.RadioButton();
+            rbnMorseToWordHearing = new System.Windows.Forms.RadioButton();
+            nudMorsePitch = new System.Windows.Forms.NumericUpDown();
+            nudMorseInterval = new System.Windows.Forms.NumericUpDown();
+            lblMorseInterval = new System.Windows.Forms.Label();
+            lblMorsePitch = new System.Windows.Forms.Label();
+            rbnWordToMorse = new System.Windows.Forms.RadioButton();
+            rbnMorseToWord = new System.Windows.Forms.RadioButton();
+            cboLanguage = new System.Windows.Forms.ComboBox();
+            lblLanguage = new System.Windows.Forms.Label();
+            lblTranslation = new System.Windows.Forms.Label();
+            chkShowMorseTranslation = new System.Windows.Forms.CheckBox();
+            chkStrictMode = new System.Windows.Forms.CheckBox();
+            lblMistakeReminder = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)nudMorsePitch).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudMorseInterval).BeginInit();
+            SuspendLayout();
             // 
             // lblSymbolToTranslate
             // 
-            this.lblSymbolToTranslate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSymbolToTranslate.AutoSize = true;
-            this.lblSymbolToTranslate.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSymbolToTranslate.Location = new System.Drawing.Point(400, 50);
-            this.lblSymbolToTranslate.Name = "lblSymbolToTranslate";
-            this.lblSymbolToTranslate.Size = new System.Drawing.Size(366, 46);
-            this.lblSymbolToTranslate.TabIndex = 0;
-            this.lblSymbolToTranslate.Text = "SymbolToTranslate";
-            this.lblSymbolToTranslate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblSymbolToTranslate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblSymbolToTranslate.AutoSize = true;
+            lblSymbolToTranslate.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblSymbolToTranslate.Location = new System.Drawing.Point(400, 50);
+            lblSymbolToTranslate.Name = "lblSymbolToTranslate";
+            lblSymbolToTranslate.Size = new System.Drawing.Size(366, 46);
+            lblSymbolToTranslate.TabIndex = 0;
+            lblSymbolToTranslate.Text = "SymbolToTranslate";
+            lblSymbolToTranslate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtInput
             // 
-            this.txtInput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(245, 199);
-            this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(311, 53);
-            this.txtInput.TabIndex = 1;
-            this.txtInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            txtInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtInput.Location = new System.Drawing.Point(245, 199);
+            txtInput.Name = "txtInput";
+            txtInput.Size = new System.Drawing.Size(311, 53);
+            txtInput.TabIndex = 1;
+            txtInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblHint
             // 
-            this.lblHint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHint.AutoSize = true;
-            this.lblHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHint.Location = new System.Drawing.Point(400, 306);
-            this.lblHint.Name = "lblHint";
-            this.lblHint.Size = new System.Drawing.Size(91, 46);
-            this.lblHint.TabIndex = 2;
-            this.lblHint.Text = "Hint";
+            lblHint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblHint.AutoSize = true;
+            lblHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblHint.Location = new System.Drawing.Point(400, 306);
+            lblHint.Name = "lblHint";
+            lblHint.Size = new System.Drawing.Size(91, 46);
+            lblHint.TabIndex = 2;
+            lblHint.Text = "Hint";
             // 
             // lblStreak
             // 
-            this.lblStreak.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblStreak.AutoSize = true;
-            this.lblStreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreak.Location = new System.Drawing.Point(79, 199);
-            this.lblStreak.Name = "lblStreak";
-            this.lblStreak.Size = new System.Drawing.Size(93, 31);
-            this.lblStreak.TabIndex = 3;
-            this.lblStreak.Text = "Streak";
-            this.lblStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblStreak.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblStreak.AutoSize = true;
+            lblStreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblStreak.Location = new System.Drawing.Point(79, 199);
+            lblStreak.Name = "lblStreak";
+            lblStreak.Size = new System.Drawing.Size(93, 31);
+            lblStreak.TabIndex = 3;
+            lblStreak.Text = "Streak";
+            lblStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rbnLetterToMorse
             // 
-            this.rbnLetterToMorse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnLetterToMorse.AutoSize = true;
-            this.rbnLetterToMorse.Location = new System.Drawing.Point(12, 306);
-            this.rbnLetterToMorse.Name = "rbnLetterToMorse";
-            this.rbnLetterToMorse.Size = new System.Drawing.Size(96, 17);
-            this.rbnLetterToMorse.TabIndex = 4;
-            this.rbnLetterToMorse.TabStop = true;
-            this.rbnLetterToMorse.Text = "Letter to Morse";
-            this.rbnLetterToMorse.UseVisualStyleBackColor = true;
+            rbnLetterToMorse.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnLetterToMorse.AutoSize = true;
+            rbnLetterToMorse.Location = new System.Drawing.Point(12, 304);
+            rbnLetterToMorse.Name = "rbnLetterToMorse";
+            rbnLetterToMorse.Size = new System.Drawing.Size(105, 19);
+            rbnLetterToMorse.TabIndex = 4;
+            rbnLetterToMorse.TabStop = true;
+            rbnLetterToMorse.Text = "Letter to Morse";
+            rbnLetterToMorse.UseVisualStyleBackColor = true;
             // 
             // rbnMorseToLetter
             // 
-            this.rbnMorseToLetter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnMorseToLetter.AutoSize = true;
-            this.rbnMorseToLetter.Location = new System.Drawing.Point(12, 329);
-            this.rbnMorseToLetter.Name = "rbnMorseToLetter";
-            this.rbnMorseToLetter.Size = new System.Drawing.Size(96, 17);
-            this.rbnMorseToLetter.TabIndex = 5;
-            this.rbnMorseToLetter.TabStop = true;
-            this.rbnMorseToLetter.Text = "Morse to Letter";
-            this.rbnMorseToLetter.UseVisualStyleBackColor = true;
+            rbnMorseToLetter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnMorseToLetter.AutoSize = true;
+            rbnMorseToLetter.Location = new System.Drawing.Point(12, 327);
+            rbnMorseToLetter.Name = "rbnMorseToLetter";
+            rbnMorseToLetter.Size = new System.Drawing.Size(105, 19);
+            rbnMorseToLetter.TabIndex = 5;
+            rbnMorseToLetter.TabStop = true;
+            rbnMorseToLetter.Text = "Morse to Letter";
+            rbnMorseToLetter.UseVisualStyleBackColor = true;
             // 
             // rbnMorseToLetterHearing
             // 
-            this.rbnMorseToLetterHearing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnMorseToLetterHearing.AutoSize = true;
-            this.rbnMorseToLetterHearing.Location = new System.Drawing.Point(12, 398);
-            this.rbnMorseToLetterHearing.Name = "rbnMorseToLetterHearing";
-            this.rbnMorseToLetterHearing.Size = new System.Drawing.Size(129, 17);
-            this.rbnMorseToLetterHearing.TabIndex = 6;
-            this.rbnMorseToLetterHearing.TabStop = true;
-            this.rbnMorseToLetterHearing.Text = "Morse to Letter (listen)";
-            this.rbnMorseToLetterHearing.UseVisualStyleBackColor = true;
+            rbnMorseToLetterHearing.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnMorseToLetterHearing.AutoSize = true;
+            rbnMorseToLetterHearing.Location = new System.Drawing.Point(12, 396);
+            rbnMorseToLetterHearing.Name = "rbnMorseToLetterHearing";
+            rbnMorseToLetterHearing.Size = new System.Drawing.Size(144, 19);
+            rbnMorseToLetterHearing.TabIndex = 6;
+            rbnMorseToLetterHearing.TabStop = true;
+            rbnMorseToLetterHearing.Text = "Morse to Letter (listen)";
+            rbnMorseToLetterHearing.UseVisualStyleBackColor = true;
             // 
             // rbnMorseToWordHearing
             // 
-            this.rbnMorseToWordHearing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnMorseToWordHearing.AutoSize = true;
-            this.rbnMorseToWordHearing.Location = new System.Drawing.Point(12, 421);
-            this.rbnMorseToWordHearing.Name = "rbnMorseToWordHearing";
-            this.rbnMorseToWordHearing.Size = new System.Drawing.Size(128, 17);
-            this.rbnMorseToWordHearing.TabIndex = 7;
-            this.rbnMorseToWordHearing.TabStop = true;
-            this.rbnMorseToWordHearing.Text = "Morse to Word (listen)";
-            this.rbnMorseToWordHearing.UseVisualStyleBackColor = true;
+            rbnMorseToWordHearing.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnMorseToWordHearing.AutoSize = true;
+            rbnMorseToWordHearing.Location = new System.Drawing.Point(12, 419);
+            rbnMorseToWordHearing.Name = "rbnMorseToWordHearing";
+            rbnMorseToWordHearing.Size = new System.Drawing.Size(143, 19);
+            rbnMorseToWordHearing.TabIndex = 7;
+            rbnMorseToWordHearing.TabStop = true;
+            rbnMorseToWordHearing.Text = "Morse to Word (listen)";
+            rbnMorseToWordHearing.UseVisualStyleBackColor = true;
             // 
             // nudMorsePitch
             // 
-            this.nudMorsePitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudMorsePitch.Location = new System.Drawing.Point(732, 421);
-            this.nudMorsePitch.Maximum = new decimal(new int[] {
-            16000,
-            0,
-            0,
-            0});
-            this.nudMorsePitch.Minimum = new decimal(new int[] {
-            37,
-            0,
-            0,
-            0});
-            this.nudMorsePitch.Name = "nudMorsePitch";
-            this.nudMorsePitch.Size = new System.Drawing.Size(56, 20);
-            this.nudMorsePitch.TabIndex = 8;
-            this.nudMorsePitch.Value = new decimal(new int[] {
-            800,
-            0,
-            0,
-            0});
+            nudMorsePitch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            nudMorsePitch.Location = new System.Drawing.Point(732, 421);
+            nudMorsePitch.Maximum = new decimal(new int[] { 16000, 0, 0, 0 });
+            nudMorsePitch.Minimum = new decimal(new int[] { 37, 0, 0, 0 });
+            nudMorsePitch.Name = "nudMorsePitch";
+            nudMorsePitch.Size = new System.Drawing.Size(56, 23);
+            nudMorsePitch.TabIndex = 8;
+            nudMorsePitch.Value = new decimal(new int[] { 800, 0, 0, 0 });
             // 
             // nudMorseInterval
             // 
-            this.nudMorseInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudMorseInterval.Location = new System.Drawing.Point(732, 395);
-            this.nudMorseInterval.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudMorseInterval.Name = "nudMorseInterval";
-            this.nudMorseInterval.Size = new System.Drawing.Size(56, 20);
-            this.nudMorseInterval.TabIndex = 9;
-            this.nudMorseInterval.Value = new decimal(new int[] {
-            150,
-            0,
-            0,
-            0});
+            nudMorseInterval.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            nudMorseInterval.Location = new System.Drawing.Point(732, 395);
+            nudMorseInterval.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            nudMorseInterval.Name = "nudMorseInterval";
+            nudMorseInterval.Size = new System.Drawing.Size(56, 23);
+            nudMorseInterval.TabIndex = 9;
+            nudMorseInterval.Value = new decimal(new int[] { 150, 0, 0, 0 });
             // 
             // lblMorseInterval
             // 
-            this.lblMorseInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMorseInterval.AutoSize = true;
-            this.lblMorseInterval.Location = new System.Drawing.Point(652, 397);
-            this.lblMorseInterval.Name = "lblMorseInterval";
-            this.lblMorseInterval.Size = new System.Drawing.Size(74, 13);
-            this.lblMorseInterval.TabIndex = 10;
-            this.lblMorseInterval.Text = "Morse-Interval";
+            lblMorseInterval.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblMorseInterval.AutoSize = true;
+            lblMorseInterval.Location = new System.Drawing.Point(642, 400);
+            lblMorseInterval.Name = "lblMorseInterval";
+            lblMorseInterval.Size = new System.Drawing.Size(84, 15);
+            lblMorseInterval.TabIndex = 10;
+            lblMorseInterval.Text = "Morse-Interval";
             // 
             // lblMorsePitch
             // 
-            this.lblMorsePitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMorsePitch.AutoSize = true;
-            this.lblMorsePitch.Location = new System.Drawing.Point(663, 423);
-            this.lblMorsePitch.Name = "lblMorsePitch";
-            this.lblMorsePitch.Size = new System.Drawing.Size(63, 13);
-            this.lblMorsePitch.TabIndex = 11;
-            this.lblMorsePitch.Text = "Morse-Pitch";
+            lblMorsePitch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblMorsePitch.AutoSize = true;
+            lblMorsePitch.Location = new System.Drawing.Point(654, 423);
+            lblMorsePitch.Name = "lblMorsePitch";
+            lblMorsePitch.Size = new System.Drawing.Size(72, 15);
+            lblMorsePitch.TabIndex = 11;
+            lblMorsePitch.Text = "Morse-Pitch";
             // 
             // rbnWordToMorse
             // 
-            this.rbnWordToMorse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnWordToMorse.AutoSize = true;
-            this.rbnWordToMorse.Location = new System.Drawing.Point(12, 352);
-            this.rbnWordToMorse.Name = "rbnWordToMorse";
-            this.rbnWordToMorse.Size = new System.Drawing.Size(95, 17);
-            this.rbnWordToMorse.TabIndex = 12;
-            this.rbnWordToMorse.TabStop = true;
-            this.rbnWordToMorse.Text = "Word to Morse";
-            this.rbnWordToMorse.UseVisualStyleBackColor = true;
+            rbnWordToMorse.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnWordToMorse.AutoSize = true;
+            rbnWordToMorse.Location = new System.Drawing.Point(12, 350);
+            rbnWordToMorse.Name = "rbnWordToMorse";
+            rbnWordToMorse.Size = new System.Drawing.Size(104, 19);
+            rbnWordToMorse.TabIndex = 12;
+            rbnWordToMorse.TabStop = true;
+            rbnWordToMorse.Text = "Word to Morse";
+            rbnWordToMorse.UseVisualStyleBackColor = true;
             // 
             // rbnMorseToWord
             // 
-            this.rbnMorseToWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbnMorseToWord.AutoSize = true;
-            this.rbnMorseToWord.Location = new System.Drawing.Point(12, 375);
-            this.rbnMorseToWord.Name = "rbnMorseToWord";
-            this.rbnMorseToWord.Size = new System.Drawing.Size(95, 17);
-            this.rbnMorseToWord.TabIndex = 13;
-            this.rbnMorseToWord.TabStop = true;
-            this.rbnMorseToWord.Text = "Morse to Word";
-            this.rbnMorseToWord.UseVisualStyleBackColor = true;
+            rbnMorseToWord.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            rbnMorseToWord.AutoSize = true;
+            rbnMorseToWord.Location = new System.Drawing.Point(12, 373);
+            rbnMorseToWord.Name = "rbnMorseToWord";
+            rbnMorseToWord.Size = new System.Drawing.Size(104, 19);
+            rbnMorseToWord.TabIndex = 13;
+            rbnMorseToWord.TabStop = true;
+            rbnMorseToWord.Text = "Morse to Word";
+            rbnMorseToWord.UseVisualStyleBackColor = true;
             // 
             // cboLanguage
             // 
-            this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLanguage.FormattingEnabled = true;
-            this.cboLanguage.Items.AddRange(new object[] {
-            "DE",
-            "EN"});
-            this.cboLanguage.Location = new System.Drawing.Point(73, 5);
-            this.cboLanguage.Name = "cboLanguage";
-            this.cboLanguage.Size = new System.Drawing.Size(49, 21);
-            this.cboLanguage.TabIndex = 14;
+            cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLanguage.FormattingEnabled = true;
+            cboLanguage.Items.AddRange(new object[] { "DE", "EN" });
+            cboLanguage.Location = new System.Drawing.Point(73, 5);
+            cboLanguage.Name = "cboLanguage";
+            cboLanguage.Size = new System.Drawing.Size(49, 23);
+            cboLanguage.TabIndex = 14;
             // 
             // lblLanguage
             // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Location = new System.Drawing.Point(12, 8);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(55, 13);
-            this.lblLanguage.TabIndex = 15;
-            this.lblLanguage.Text = "Language";
+            lblLanguage.AutoSize = true;
+            lblLanguage.Location = new System.Drawing.Point(12, 8);
+            lblLanguage.Name = "lblLanguage";
+            lblLanguage.Size = new System.Drawing.Size(59, 15);
+            lblLanguage.TabIndex = 15;
+            lblLanguage.Text = "Language";
             // 
             // lblTranslation
             // 
-            this.lblTranslation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTranslation.AutoSize = true;
-            this.lblTranslation.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTranslation.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblTranslation.Location = new System.Drawing.Point(400, 161);
-            this.lblTranslation.Name = "lblTranslation";
-            this.lblTranslation.Size = new System.Drawing.Size(149, 31);
-            this.lblTranslation.TabIndex = 16;
-            this.lblTranslation.Text = "Translation";
-            this.lblTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTranslation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblTranslation.AutoSize = true;
+            lblTranslation.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblTranslation.ForeColor = System.Drawing.SystemColors.ControlDark;
+            lblTranslation.Location = new System.Drawing.Point(400, 161);
+            lblTranslation.Name = "lblTranslation";
+            lblTranslation.Size = new System.Drawing.Size(149, 31);
+            lblTranslation.TabIndex = 16;
+            lblTranslation.Text = "Translation";
+            lblTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkShowMorseTranslation
             // 
-            this.chkShowMorseTranslation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkShowMorseTranslation.AutoSize = true;
-            this.chkShowMorseTranslation.Checked = true;
-            this.chkShowMorseTranslation.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMorseTranslation.Location = new System.Drawing.Point(680, 372);
-            this.chkShowMorseTranslation.Name = "chkShowMorseTranslation";
-            this.chkShowMorseTranslation.Size = new System.Drawing.Size(108, 17);
-            this.chkShowMorseTranslation.TabIndex = 17;
-            this.chkShowMorseTranslation.Text = "Show Translation";
-            this.chkShowMorseTranslation.UseVisualStyleBackColor = true;
+            chkShowMorseTranslation.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkShowMorseTranslation.AutoSize = true;
+            chkShowMorseTranslation.Checked = true;
+            chkShowMorseTranslation.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkShowMorseTranslation.Location = new System.Drawing.Point(673, 370);
+            chkShowMorseTranslation.Name = "chkShowMorseTranslation";
+            chkShowMorseTranslation.Size = new System.Drawing.Size(115, 19);
+            chkShowMorseTranslation.TabIndex = 17;
+            chkShowMorseTranslation.Text = "Show Translation";
+            chkShowMorseTranslation.UseVisualStyleBackColor = true;
             // 
             // chkStrictMode
             // 
-            this.chkStrictMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkStrictMode.AutoSize = true;
-            this.chkStrictMode.Location = new System.Drawing.Point(708, 349);
-            this.chkStrictMode.Name = "chkStrictMode";
-            this.chkStrictMode.Size = new System.Drawing.Size(80, 17);
-            this.chkStrictMode.TabIndex = 18;
-            this.chkStrictMode.Text = "Strict Mode";
-            this.chkStrictMode.UseVisualStyleBackColor = true;
+            chkStrictMode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkStrictMode.AutoSize = true;
+            chkStrictMode.Location = new System.Drawing.Point(701, 347);
+            chkStrictMode.Name = "chkStrictMode";
+            chkStrictMode.Size = new System.Drawing.Size(87, 19);
+            chkStrictMode.TabIndex = 18;
+            chkStrictMode.Text = "Strict Mode";
+            chkStrictMode.UseVisualStyleBackColor = true;
             // 
             // lblMistakeReminder
             // 
-            this.lblMistakeReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMistakeReminder.AutoSize = true;
-            this.lblMistakeReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMistakeReminder.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblMistakeReminder.Location = new System.Drawing.Point(563, 199);
-            this.lblMistakeReminder.Name = "lblMistakeReminder";
-            this.lblMistakeReminder.Size = new System.Drawing.Size(225, 31);
-            this.lblMistakeReminder.TabIndex = 19;
-            this.lblMistakeReminder.Text = "MistakeReminder";
-            this.lblMistakeReminder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblMistakeReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblMistakeReminder.AutoSize = true;
+            lblMistakeReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblMistakeReminder.ForeColor = System.Drawing.SystemColors.ControlDark;
+            lblMistakeReminder.Location = new System.Drawing.Point(563, 199);
+            lblMistakeReminder.Name = "lblMistakeReminder";
+            lblMistakeReminder.Size = new System.Drawing.Size(225, 31);
+            lblMistakeReminder.TabIndex = 19;
+            lblMistakeReminder.Text = "MistakeReminder";
+            lblMistakeReminder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmMain
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblMistakeReminder);
-            this.Controls.Add(this.chkStrictMode);
-            this.Controls.Add(this.chkShowMorseTranslation);
-            this.Controls.Add(this.lblTranslation);
-            this.Controls.Add(this.lblLanguage);
-            this.Controls.Add(this.cboLanguage);
-            this.Controls.Add(this.rbnMorseToWord);
-            this.Controls.Add(this.rbnWordToMorse);
-            this.Controls.Add(this.lblMorsePitch);
-            this.Controls.Add(this.lblMorseInterval);
-            this.Controls.Add(this.nudMorseInterval);
-            this.Controls.Add(this.nudMorsePitch);
-            this.Controls.Add(this.rbnMorseToWordHearing);
-            this.Controls.Add(this.rbnMorseToLetterHearing);
-            this.Controls.Add(this.rbnMorseToLetter);
-            this.Controls.Add(this.rbnLetterToMorse);
-            this.Controls.Add(this.lblStreak);
-            this.Controls.Add(this.lblHint);
-            this.Controls.Add(this.txtInput);
-            this.Controls.Add(this.lblSymbolToTranslate);
-            this.MinimumSize = new System.Drawing.Size(816, 489);
-            this.Name = "frmMain";
-            this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.frmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nudMorsePitch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMorseInterval)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(lblMistakeReminder);
+            Controls.Add(chkStrictMode);
+            Controls.Add(chkShowMorseTranslation);
+            Controls.Add(lblTranslation);
+            Controls.Add(lblLanguage);
+            Controls.Add(cboLanguage);
+            Controls.Add(rbnMorseToWord);
+            Controls.Add(rbnWordToMorse);
+            Controls.Add(lblMorsePitch);
+            Controls.Add(lblMorseInterval);
+            Controls.Add(nudMorseInterval);
+            Controls.Add(nudMorsePitch);
+            Controls.Add(rbnMorseToWordHearing);
+            Controls.Add(rbnMorseToLetterHearing);
+            Controls.Add(rbnMorseToLetter);
+            Controls.Add(rbnLetterToMorse);
+            Controls.Add(lblStreak);
+            Controls.Add(lblHint);
+            Controls.Add(txtInput);
+            Controls.Add(lblSymbolToTranslate);
+            MinimumSize = new System.Drawing.Size(816, 489);
+            Name = "frmMain";
+            ShowIcon = false;
+            Load += frmMain_Load;
+            ((System.ComponentModel.ISupportInitialize)nudMorsePitch).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudMorseInterval).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

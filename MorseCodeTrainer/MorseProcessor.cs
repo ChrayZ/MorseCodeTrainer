@@ -76,22 +76,26 @@ namespace MorseCodeTrainer
         /// </summary>
         public void SoundMorse(string morse)
         {
-            _beepThread?.Abort();
+            _beepThread?.Interrupt();
 
             Func<string, int, int, int> soundMorseLambda = (string morseString, int morseInterval, int morsePitch) =>
             {
-                foreach (char morseSign in morseString)
+                try
                 {
-                    if (morseSign == '-') Console.Beep(morsePitch, morseInterval * 3);
-                    if (morseSign == '.') Console.Beep(morsePitch, morseInterval);
-                    if (morseSign == ' ') System.Threading.Thread.Sleep(morseInterval);
-                    System.Threading.Thread.Sleep(morseInterval);
+                    foreach (char morseSign in morseString)
+                    {
+                        if (morseSign == '-') Console.Beep(morsePitch, morseInterval * 3);
+                        if (morseSign == '.') Console.Beep(morsePitch, morseInterval);
+                        if (morseSign == ' ') System.Threading.Thread.Sleep(morseInterval);
+                        System.Threading.Thread.Sleep(morseInterval);
+                    }
+                    return 0;
                 }
-                return 1;
+                catch { return 1; }
             };
             _beepThread = new Thread(() => soundMorseLambda(morse, MorseInterval, MorsePitch));
 
-             _stopMorseSoundEvent += (object sender, EventArgs e) => _beepThread.Abort();
+             _stopMorseSoundEvent += (object sender, EventArgs e) => _beepThread.Interrupt();
             _beepThread.Start();
         }
 

@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 namespace MorseCodeTrainer
 {
-	public partial class frmMain : Form
+    public partial class frmMain : Form
 	{
 		private List<Keys> _listOfValidKeys;
 		private System.Windows.Forms.Timer _timer;
@@ -56,11 +56,11 @@ namespace MorseCodeTrainer
 
 				if (value)
 				{
-					System.Windows.Forms.Cursor.Show();
+                    Cursor.Show();
 				}
 				else
 				{
-					System.Windows.Forms.Cursor.Hide();
+                    Cursor.Hide();
 				}
 
 				__cursorShown = value;
@@ -106,6 +106,8 @@ namespace MorseCodeTrainer
             rbnMorseToWordHearing.CheckedChanged += rbnSelectionChanged;
 			cboLanguage.SelectedIndexChanged += cboLanguage_SelectedIndexChanged;
 			chkShowMorseTranslation.CheckedChanged += chkShowMorseTranslation_CheckedChanged;
+			nudMorseInterval.ValueChanged += nudMorseSoundParameters_ValueChanged;
+            nudMorsePitch.ValueChanged += nudMorseSoundParameters_ValueChanged;
             _timer.Tick += timer_Tick;
 			FormClosing += (object Sender, FormClosingEventArgs E) => _morseProcessor.StopMorseSound();
 
