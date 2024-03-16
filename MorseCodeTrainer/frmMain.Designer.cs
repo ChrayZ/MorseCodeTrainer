@@ -1,6 +1,6 @@
 ﻿namespace MorseCodeTrainer
 {
-    partial class MainForm
+    partial class frmMain
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNextLetter = new System.Windows.Forms.Label();
+            this.lblSymbolToTranslate = new System.Windows.Forms.Label();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.lblHint = new System.Windows.Forms.Label();
             this.lblStreak = new System.Windows.Forms.Label();
@@ -46,20 +46,23 @@
             this.lblLanguage = new System.Windows.Forms.Label();
             this.lblTranslation = new System.Windows.Forms.Label();
             this.chkShowMorseTranslation = new System.Windows.Forms.CheckBox();
+            this.chkStrictMode = new System.Windows.Forms.CheckBox();
+            this.lblMistakeReminder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMorsePitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMorseInterval)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblNextLetter
+            // lblSymbolToTranslate
             // 
-            this.lblNextLetter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNextLetter.AutoSize = true;
-            this.lblNextLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNextLetter.Location = new System.Drawing.Point(400, 50);
-            this.lblNextLetter.Name = "lblNextLetter";
-            this.lblNextLetter.Size = new System.Drawing.Size(0, 46);
-            this.lblNextLetter.TabIndex = 0;
-            this.lblNextLetter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSymbolToTranslate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSymbolToTranslate.AutoSize = true;
+            this.lblSymbolToTranslate.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSymbolToTranslate.Location = new System.Drawing.Point(400, 50);
+            this.lblSymbolToTranslate.Name = "lblSymbolToTranslate";
+            this.lblSymbolToTranslate.Size = new System.Drawing.Size(366, 46);
+            this.lblSymbolToTranslate.TabIndex = 0;
+            this.lblSymbolToTranslate.Text = "SymbolToTranslate";
+            this.lblSymbolToTranslate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtInput
             // 
@@ -76,21 +79,22 @@
             this.lblHint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHint.AutoSize = true;
             this.lblHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHint.Location = new System.Drawing.Point(400, 355);
+            this.lblHint.Location = new System.Drawing.Point(400, 306);
             this.lblHint.Name = "lblHint";
-            this.lblHint.Size = new System.Drawing.Size(0, 46);
+            this.lblHint.Size = new System.Drawing.Size(91, 46);
             this.lblHint.TabIndex = 2;
+            this.lblHint.Text = "Hint";
             // 
             // lblStreak
             // 
             this.lblStreak.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStreak.AutoSize = true;
             this.lblStreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreak.Location = new System.Drawing.Point(80, 167);
+            this.lblStreak.Location = new System.Drawing.Point(79, 199);
             this.lblStreak.Name = "lblStreak";
-            this.lblStreak.Size = new System.Drawing.Size(101, 62);
+            this.lblStreak.Size = new System.Drawing.Size(93, 31);
             this.lblStreak.TabIndex = 3;
-            this.lblStreak.Text = "Streak:\r\n0\r\n";
+            this.lblStreak.Text = "Streak";
             this.lblStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rbnLetterToMorse
@@ -255,8 +259,9 @@
             this.lblTranslation.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblTranslation.Location = new System.Drawing.Point(400, 161);
             this.lblTranslation.Name = "lblTranslation";
-            this.lblTranslation.Size = new System.Drawing.Size(0, 31);
+            this.lblTranslation.Size = new System.Drawing.Size(149, 31);
             this.lblTranslation.TabIndex = 16;
+            this.lblTranslation.Text = "Translation";
             this.lblTranslation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkShowMorseTranslation
@@ -272,11 +277,36 @@
             this.chkShowMorseTranslation.Text = "Show Translation";
             this.chkShowMorseTranslation.UseVisualStyleBackColor = true;
             // 
-            // MainForm
+            // chkStrictMode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.chkStrictMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkStrictMode.AutoSize = true;
+            this.chkStrictMode.Location = new System.Drawing.Point(708, 349);
+            this.chkStrictMode.Name = "chkStrictMode";
+            this.chkStrictMode.Size = new System.Drawing.Size(80, 17);
+            this.chkStrictMode.TabIndex = 18;
+            this.chkStrictMode.Text = "Strict Mode";
+            this.chkStrictMode.UseVisualStyleBackColor = true;
+            // 
+            // lblMistakeReminder
+            // 
+            this.lblMistakeReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMistakeReminder.AutoSize = true;
+            this.lblMistakeReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMistakeReminder.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblMistakeReminder.Location = new System.Drawing.Point(563, 199);
+            this.lblMistakeReminder.Name = "lblMistakeReminder";
+            this.lblMistakeReminder.Size = new System.Drawing.Size(225, 31);
+            this.lblMistakeReminder.TabIndex = 19;
+            this.lblMistakeReminder.Text = "MistakeReminder";
+            this.lblMistakeReminder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // frmMain
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMistakeReminder);
+            this.Controls.Add(this.chkStrictMode);
             this.Controls.Add(this.chkShowMorseTranslation);
             this.Controls.Add(this.lblTranslation);
             this.Controls.Add(this.lblLanguage);
@@ -294,11 +324,11 @@
             this.Controls.Add(this.lblStreak);
             this.Controls.Add(this.lblHint);
             this.Controls.Add(this.txtInput);
-            this.Controls.Add(this.lblNextLetter);
-            this.Name = "MainForm";
+            this.Controls.Add(this.lblSymbolToTranslate);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.Name = "frmMain";
             this.ShowIcon = false;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMorsePitch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMorseInterval)).EndInit();
             this.ResumeLayout(false);
@@ -308,7 +338,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblNextLetter;
+        private System.Windows.Forms.Label lblSymbolToTranslate;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Label lblHint;
         private System.Windows.Forms.Label lblStreak;
@@ -326,6 +356,8 @@
         private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.Label lblTranslation;
         private System.Windows.Forms.CheckBox chkShowMorseTranslation;
+        private System.Windows.Forms.CheckBox chkStrictMode;
+        private System.Windows.Forms.Label lblMistakeReminder;
     }
 }
 
