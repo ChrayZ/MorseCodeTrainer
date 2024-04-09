@@ -230,8 +230,9 @@ namespace MorseCodeTrainer
 			{
 				showResult(false);
             }
-			else if ((_learningMode == LearningMode.TextFirstLetter || _learningMode == LearningMode.TextFirstWord)
-				!= (e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Back))
+			else if (e.KeyCode != Keys.Back &&
+                (_learningMode == LearningMode.TextFirstLetter || _learningMode == LearningMode.TextFirstWord)
+				!= (e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.OemPeriod))
 			{
 				txtInput.Clear(); 
 			}
